@@ -9,7 +9,7 @@ import { environment } from '../environments/environment';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'gfi';
+  info: any;
 
   constructor(private http: HttpClient) { }
 
@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
     const url = environment.API_DOMAIN;
     const options = { params: new HttpParams().set('t', 'interstellar') };
     this.http.get(url, options).subscribe(
-      (resp) => console.log(resp)
+      (resp) => this.info = resp
     );
   }
 
