@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams  } from '@angular/common/http';
 
 import { environment } from '../environments/environment';
 
@@ -14,8 +14,9 @@ export class AppComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    const url = `${environment.API_DOMAIN}/?apikey=${environment.API_KEY}&t=interstellar`;
-    this.http.get(url).subscribe(
+    const url = environment.API_DOMAIN;
+    const options = { params: new HttpParams().set('t', 'interstellar') };
+    this.http.get(url, options).subscribe(
       (resp) => console.log(resp)
     );
   }
