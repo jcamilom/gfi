@@ -1,5 +1,5 @@
 <mat-card class="search-result-card">
-  <img mat-card-image [src]="item.Poster" alt="result poster" class="poster">
+  <img mat-card-image [src]="item.Poster" alt="result poster" class="poster" (error)="updateUrl($event)">
   <mat-card-content>
     <mat-card-title-group>
       <mat-card-title>{{ item.Title }}</mat-card-title>
