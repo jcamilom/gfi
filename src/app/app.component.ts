@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-const API_DOMAIN = 'http://www.omdbapi.com';
-const API_KEY = 'xxxxxx';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +14,7 @@ export class AppComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    const url = `${API_DOMAIN}/?apikey=${API_KEY}&t=interstellar`;
+    const url = `${environment.API_DOMAIN}/?apikey=${environment.API_KEY}&t=interstellar`;
     this.http.get(url).subscribe(
       (resp) => console.log(resp)
     );
