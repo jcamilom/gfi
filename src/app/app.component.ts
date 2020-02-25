@@ -1,23 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpParams  } from '@angular/common/http';
+import { Component } from '@angular/core';
 
-import { environment } from '../environments/environment';
+import { SearchResultItem } from './core/models/models';
+import { MoviesService } from './services/movies/movies.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-  info: any;
+export class AppComponent {
 
-  constructor(private http: HttpClient) { }
+  public results: SearchResultItem[] = [];
+  public value = '';
 
-  ngOnInit() {
-    const url = environment.API_DOMAIN;
-    const options = { params: new HttpParams().set('t', 'interstellar') };
-    this.http.get(url, options).subscribe(
-      (resp) => this.info = resp
+  constructor(private moviesService: MoviesService) { }
+
+  public search() {
+    this.moviesService.search(this.value.trim()).subscribe(
+      (resp) => {
+        this.results = resp.Search;
+      }
     );
   }
 
