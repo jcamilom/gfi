@@ -20,7 +20,7 @@ export class MoviesService {
   constructor(private http: HttpClient) { }
 
   public search(value: string): Observable<SearchResponse> {
-    const url = environment.API_DOMAIN;
+    const url = environment.MOVIES_API_DOMAIN;
     const options = { params: new HttpParams().set('s', value) };
     return this.http.get<SearchResponse>(url, options);
   }
