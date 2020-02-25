@@ -30,8 +30,8 @@ export class LoginComponent implements OnInit {
 
   public login(): void {
     this.authService.login(this.form.value.email.trim(), this.form.value.password.trim()).subscribe(
-      (resp: { email: string }) => {
-        this.sessionService.createSession(resp.email);
+      (resp) => {
+        this.sessionService.createSession(resp.user);
         this.router.navigate(['/home/search']);
       }, (err) => {
         console.log(err);
