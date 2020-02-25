@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './modules/material/material.module';
+import { HomeModule } from './modules/home/home.module';
 import { SharedModule } from './modules/shared/shared.module';
 
 import { AppComponent } from './app.component';
@@ -21,6 +22,7 @@ import { httpInterceptorProviders } from './core/http-interceptors/index';
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    HomeModule,
     AppRoutingModule,
     MaterialModule,
     SharedModule,
