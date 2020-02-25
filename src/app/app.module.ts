@@ -5,11 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
-
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
+import { MaterialModule } from './modules/material/material.module';
 
 import { AppComponent } from './app.component';
 import { SearchResultCardComponent } from './components/search-result-card/search-result-card.component';
@@ -30,11 +26,8 @@ import { httpInterceptorProviders } from './core/http-interceptors/index';
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    MatCardModule,
-    MatButtonModule,
-    MatInputModule,
-    MatIconModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MaterialModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
