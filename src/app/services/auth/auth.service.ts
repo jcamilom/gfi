@@ -9,8 +9,6 @@ import { environment } from '../../../environments/environment';
 })
 export class AuthService {
 
-  public isLoggedIn = false;
-
   constructor(private http: HttpClient) { }
 
   public login(email: string, password: string): Observable<any> {
