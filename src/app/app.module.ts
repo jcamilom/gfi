@@ -8,7 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './modules/material/material.module';
 
 import { AppComponent } from './app.component';
-import { SearchResultCardComponent } from './components/search-result-card/search-result-card.component';
 import { LoginComponent } from './components/login/login.component';
 
 import { httpInterceptorProviders } from './core/http-interceptors/index';
@@ -16,7 +15,6 @@ import { httpInterceptorProviders } from './core/http-interceptors/index';
 @NgModule({
   declarations: [
     AppComponent,
-    SearchResultCardComponent,
     LoginComponent
   ],
   imports: [
