@@ -2,10 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './modules/material/material.module';
+import { SharedModule } from './modules/shared/shared.module';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -21,11 +21,9 @@ import { httpInterceptorProviders } from './core/http-interceptors/index';
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    FlexLayoutModule,
-    FormsModule,
-    ReactiveFormsModule,
     AppRoutingModule,
-    MaterialModule
+    MaterialModule,
+    SharedModule,
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
