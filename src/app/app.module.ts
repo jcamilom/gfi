@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule, Routes } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -17,15 +17,6 @@ import { LoginComponent } from './components/login/login.component';
 
 import { httpInterceptorProviders } from './core/http-interceptors/index';
 
-const appRoutes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: '',
-    redirectTo: '/login',
-    pathMatch: 'full'
-  },
-  { path: '**', component: LoginComponent }
-];
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +24,6 @@ const appRoutes: Routes = [
     LoginComponent
   ],
   imports: [
-    RouterModule.forRoot(appRoutes),
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
@@ -43,7 +33,8 @@ const appRoutes: Routes = [
     MatCardModule,
     MatButtonModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    AppRoutingModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
