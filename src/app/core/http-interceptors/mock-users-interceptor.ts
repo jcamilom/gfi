@@ -22,7 +22,7 @@ export class MockUsersInterceptor implements HttpInterceptor {
     if (req.url.indexOf(`${environment.API_DOMAIN}/login`) === 0 && req.method === 'POST') {
       for (const user of USERS) {
         if (user.email === req.body.email && user.password === req.body.password) {
-          return of(new HttpResponse({ status: 200, body: {} }));
+          return of(new HttpResponse({ status: 200, body: { email: user.email } }));
         }
       }
       return throwError(new HttpErrorResponse({ status: 401, statusText: 'Unauthorized' }));
