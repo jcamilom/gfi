@@ -4,13 +4,16 @@ import { environment } from '../../../environments/environment';
 
 import { Observable } from 'rxjs';
 
+/**
+ * Authorization interceptor. Used to inject the MOVIES_API_KEY for every request intended to reach the MOVIES_API_DOMAIN
+ */
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if (req.url.indexOf(environment.API_DOMAIN) === 0) {
+    if (req.url.indexOf(environment.MOVIES_API_DOMAIN) === 0) {
       const clonedReq = req.clone({
-        params: req.params.set('apikey', environment.API_KEY)
+        params: req.params.set('apikey', environment.MOVIES_API_KEY)
       });
       return next.handle(clonedReq);
     }

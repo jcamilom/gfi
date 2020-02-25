@@ -4,8 +4,9 @@
 
 export const environment = {
   production: false,
-  API_DOMAIN: 'http://www.omdbapi.com',
-  API_KEY: 'xxxxxx',
+  API_DOMAIN: 'http://www.myapidomain.com',
+  MOVIES_API_DOMAIN: 'http://www.omdbapi.com',
+  MOVIES_API_KEY: 'f12ba140',
 };
 
 /*

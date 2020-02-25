@@ -3,22 +3,21 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { FormsModule } from '@angular/forms';
-
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
+import { MaterialModule } from './modules/material/material.module';
 
 import { AppComponent } from './app.component';
+import { SearchResultCardComponent } from './components/search-result-card/search-result-card.component';
+import { LoginComponent } from './components/login/login.component';
 
 import { httpInterceptorProviders } from './core/http-interceptors/index';
-import { SearchResultCardComponent } from './components/search-result-card/search-result-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchResultCardComponent
+    SearchResultCardComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -26,10 +25,9 @@ import { SearchResultCardComponent } from './components/search-result-card/searc
     BrowserAnimationsModule,
     FlexLayoutModule,
     FormsModule,
-    MatCardModule,
-    MatButtonModule,
-    MatInputModule,
-    MatIconModule
+    ReactiveFormsModule,
+    AppRoutingModule,
+    MaterialModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
