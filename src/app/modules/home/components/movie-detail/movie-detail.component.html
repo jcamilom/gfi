@@ -1,0 +1,9 @@
+<div class="movie-detail-container">
+  <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
+    <mat-icon class="back-icon" (click)="backClicked()">arrow_back</mat-icon>
+    <span class="movie-detail-title">Movie detail</span>
+  </div>
+  <pre>
+    {{ movie | json }}
+  </pre>
+</div>

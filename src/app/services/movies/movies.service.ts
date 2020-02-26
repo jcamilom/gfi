@@ -4,7 +4,7 @@ import { HttpClient, HttpParams  } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { environment } from '../../../environments/environment';
-import { Movie } from '../../core/models/models';
+import { Movie, MovieDetail } from '../../core/models/models';
 
 interface SearchResponse {
   Search: Movie[];
@@ -23,6 +23,12 @@ export class MoviesService {
     const url = environment.MOVIES_API_DOMAIN;
     const options = { params: new HttpParams().set('s', value) };
     return this.http.get<SearchResponse>(url, options);
+  }
+
+  public getMovie(id: string): Observable<MovieDetail> {
+    const url = environment.MOVIES_API_DOMAIN;
+    const options = { params: new HttpParams().set('i', id) };
+    return this.http.get<MovieDetail>(url, options);
   }
 
 }
