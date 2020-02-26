@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 import { Movie } from '../../../../core/models/models';
 import { MoviesService } from '../../../../services/movies/movies.service';
 import { FavoritesService } from '../../../../services/favorites/favorites.service';
@@ -19,6 +21,7 @@ export class SearchComponent implements OnInit {
     private moviesService: MoviesService,
     private favoritesService: FavoritesService,
     private dataService: DataService,
+    private snackBar: MatSnackBar,
   ) { }
 
   ngOnInit(): void {
@@ -45,7 +48,17 @@ export class SearchComponent implements OnInit {
   }
 
   public addAsFavorite(index: number): void {
-    this.favoritesService.addFavorite(this.results[index]);
+    const result = this.favoritesService.addFavorite(this.results[index]);
+    let message: string;
+    const action = 'Close';
+    if (result) {
+      message = 'Added to favorites successfully';
+    } else {
+      message = 'Item is already a favorite';
+    }
+    this.snackBar.open(message, action, {
+      duration: 3000,
+    });
   }
 
 }

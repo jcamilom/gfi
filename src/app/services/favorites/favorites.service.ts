@@ -11,9 +11,9 @@ export class FavoritesService {
   constructor(private sessionService: SessionService) { }
 
   /**
-   * Adds favorite if not exists
+   * Adds favorite if not exists, Returns true if item added.
    */
-  public addFavorite(movie: Movie): void {
+  public addFavorite(movie: Movie): boolean {
     const userEmail = this.sessionService.getUserInfo().email;
     const userData: { favorites: Movie[] } = JSON.parse(localStorage.getItem(userEmail));
     const currentFavorites = userData.favorites;
@@ -22,7 +22,9 @@ export class FavoritesService {
       currentFavorites.push(movie);
       const newUserData = { favorites: currentFavorites };
       localStorage.setItem(userEmail, JSON.stringify(newUserData));
+      return true;
     }
+    return false;
   }
 
   public getFavorites(): Movie[] {
