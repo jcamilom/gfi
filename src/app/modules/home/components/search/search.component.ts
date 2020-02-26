@@ -10,15 +10,18 @@ import { MoviesService } from '../../../../services/movies/movies.service';
 export class SearchComponent implements OnInit {
 
   public results: SearchResultItem[] = [];
-  public value = '';
+  public value = 'the lord of the rings';
+  public searchedValue: string;
 
   constructor(private moviesService: MoviesService) { }
 
   ngOnInit(): void {
+    this.search();
   }
 
   public search() {
-    this.moviesService.search(this.value.trim()).subscribe(
+    this.searchedValue = this.value.trim();
+    this.moviesService.search(this.searchedValue).subscribe(
       (resp) => {
         this.results = resp.Search;
       }

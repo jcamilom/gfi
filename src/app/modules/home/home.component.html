@@ -1,2 +1,11 @@
-<div>Header</div>
-<router-outlet></router-outlet>
+<mat-toolbar color="primary">
+  <span>OMDb</span>
+  <span fxFlex="auto"></span>
+  <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="15px">
+    <span>{{ user?.name }}</span>
+    <mat-icon (click)="logout()" class="clickable">exit_to_app</mat-icon>
+  </div>
+</mat-toolbar>
+<div class="main-container">
+  <router-outlet></router-outlet>
+</div>

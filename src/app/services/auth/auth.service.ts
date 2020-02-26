@@ -3,20 +3,23 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { environment } from '../../../environments/environment';
+import { User } from '../../core/models/models';
+
+interface LoginResponse {
+  user: User;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  public isLoggedIn = false;
-
   constructor(private http: HttpClient) { }
 
-  public login(email: string, password: string): Observable<any> {
+  public login(email: string, password: string): Observable<LoginResponse> {
     const url = `${environment.API_DOMAIN}/login`;
     const body = { email, password };
-    return this.http.post(url, body);
+    return this.http.post<LoginResponse>(url, body);
   }
 
 }
