@@ -9,6 +9,7 @@ import { HomeComponent } from './home.component';
 import { SearchResultCardComponent } from './components/search-result-card/search-result-card.component';
 import { SearchComponent } from './components/search/search.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
+import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { FavoritesComponent } from './components/favorites/favorites.component';
     SearchResultCardComponent,
     SearchComponent,
     FavoritesComponent,
+    MovieDetailComponent,
   ],
   imports: [
     CommonModule,
