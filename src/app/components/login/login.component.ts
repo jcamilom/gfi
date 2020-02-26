@@ -13,6 +13,7 @@ import { SessionService } from '../../services/session/session.service';
 export class LoginComponent implements OnInit {
 
   public form: FormGroup;
+  public wrongCredentials: boolean;
 
   constructor(
     private fb: FormBuilder,
@@ -29,12 +30,13 @@ export class LoginComponent implements OnInit {
   }
 
   public login(): void {
+    this.wrongCredentials = false;
     this.authService.login(this.form.value.email.trim(), this.form.value.password.trim()).subscribe(
       (resp) => {
         this.sessionService.createSession(resp.user);
         this.router.navigate(['/home/search']);
       }, (err) => {
-        console.log(err);
+        this.wrongCredentials = true;
       }
     );
   }

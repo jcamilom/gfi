@@ -13,9 +13,9 @@
 
   <div fxLayout="row wrap" fxLayoutAlign="space-between" class="results-container">
     <ng-container *ngIf="results?.length > 0; else noResults">
-      <app-search-result-card *ngFor="let item of results; index as i" [item]="item"
+      <app-movie-card *ngFor="let item of results; index as i" [item]="item"
         [routerLink]="['/home/movie-detail', item.imdbID]"
-        (favoriteClicked)="addAsFavorite(i)"></app-search-result-card>
+        (favoriteClicked)="addAsFavorite(i)"></app-movie-card>
     </ng-container>
     <ng-template #noResults>
       No results for "{{ searchedValue }}"

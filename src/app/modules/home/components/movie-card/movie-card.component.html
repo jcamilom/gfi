@@ -1,0 +1,18 @@
+<div fxLayout="column" class="movie-card">
+  <img [src]="item.Poster" alt="movie poster" class="poster"
+    (error)="item.Poster = '../../../../../assets/images/film-default.jpg'">
+  <div class="content">
+    <span class="title">{{ item.Title }}</span><br>
+    <span class="subtitle">{{ item.Year }} - {{ item.Type | titlecase }}</span>
+  </div>
+  <div fxFlex="auto" fxLayoutAlign="end end">
+    <button *ngIf="!isFavorite" mat-icon-button aria-label="Add as favorite button"
+      (click)="addAsFavorite($event)">
+      <mat-icon>favorite_border</mat-icon>
+    </button>
+    <button *ngIf="isFavorite" mat-icon-button aria-label="Remove from favorites button"
+      (click)="removeFromFavorite($event)">
+      <mat-icon>delete_outline</mat-icon>
+    </button>
+  </div>
+</div>

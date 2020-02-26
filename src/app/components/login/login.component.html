@@ -20,6 +20,9 @@
           Password is <strong>required</strong>
         </mat-error>
       </mat-form-field>
+      <mat-error *ngIf="wrongCredentials">
+        Wrong email - password combination
+      </mat-error>
       <button type="submit" mat-raised-button color="primary" class="full-width" [disabled]="!form.valid">LOGIN</button>
     </form>
   </div>

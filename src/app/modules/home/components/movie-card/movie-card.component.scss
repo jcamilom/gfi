@@ -1,0 +1,25 @@
+@import '../../../../../sass/variables';
+@import '../../../../../sass/mixins';
+
+:host {
+  width: 182px;
+}
+
+.movie-card {
+  height: 100%;
+  @include white-box;
+  img.poster {
+    width: 100%;
+    min-height: 270px;
+    max-height: 270px;
+  }
+  .content {
+    padding: 8px 10px;
+    .title {
+      font-size: 20px;
+    }
+    .subtitle {
+      color: $gray;
+    }
+  }
+}
