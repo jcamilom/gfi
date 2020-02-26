@@ -1,27 +1,22 @@
-# Gfi
+# GFI
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.3.
+APP para el consumo de OMDb API
 
-## Development server
+#### Usuarios registrados
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Ver detalle en archivo `mock-users-interceptor.ts` 
 
-## Code scaffolding
+| email         | password          |
+| ------------- |:-------------:|
+| juan@mail.com      | 1234 |
+| maria@mail.com      | 5678    |
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## ¿Cómo correr?
 
-## Build
+Setear `MOVIES_API_KEY` en el archivo `environment.ts`.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Ejecutar `ng serve`
 
-## Running unit tests
+## Favoritos
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Se accede por medio del menu desplegable de la barra superior

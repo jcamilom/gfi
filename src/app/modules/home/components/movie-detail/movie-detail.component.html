@@ -1,0 +1,17 @@
+<div class="movie-detail-container">
+  <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
+    <mat-icon class="back-icon" (click)="backClicked()">arrow_back</mat-icon>
+    <span class="movie-detail-title">Movie detail</span>
+  </div>
+  <div fxLayout="row" fxLayoutGap="30px" *ngIf="movie" class="movie-info-container">
+    <div>
+      <img [src]="movie.Poster" alt="movie poster" class="poster"
+        (error)="movie.Poster = '../../../../../assets/images/film-default.jpg'">
+    </div>
+    <div fxFlex="auto" fxLayout="column" class="white-bow">
+      <div *ngFor="let key of displayKeys">
+        <span class="key">{{ key }}:</span> {{ movie[key] }}
+      </div>
+    </div>
+  </div>
+</div>
