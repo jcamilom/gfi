@@ -6,7 +6,7 @@ import { MaterialModule } from '../material/material.module';
 import { SharedModule } from '../shared/shared.module';
 
 import { HomeComponent } from './home.component';
-import { SearchResultCardComponent } from './components/search-result-card/search-result-card.component';
+import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { SearchComponent } from './components/search/search.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
@@ -14,7 +14,7 @@ import { MovieDetailComponent } from './components/movie-detail/movie-detail.com
 @NgModule({
   declarations: [
     HomeComponent,
-    SearchResultCardComponent,
+    MovieCardComponent,
     SearchComponent,
     FavoritesComponent,
     MovieDetailComponent,
