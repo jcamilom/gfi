@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SearchResultItem } from '../../../../core/models/models';
+import { Movie } from '../../../../core/models/models';
 import { MoviesService } from '../../../../services/movies/movies.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { MoviesService } from '../../../../services/movies/movies.service';
 })
 export class SearchComponent implements OnInit {
 
-  public results: SearchResultItem[] = [];
+  public results: Movie[] = [];
   public value = 'the lord of the rings';
   public searchedValue: string;
 
