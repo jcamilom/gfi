@@ -12,7 +12,7 @@ import { DataService } from '../../../../services/data/data.service';
 export class SearchComponent implements OnInit {
 
   public results: Movie[] = [];
-  public value = 'the lord of the rings';
+  public value = '';
   public searchedValue: string;
 
   constructor(
@@ -32,6 +32,9 @@ export class SearchComponent implements OnInit {
 
   public search() {
     this.searchedValue = this.value.trim();
+    if (this.searchedValue === '') {
+      return;
+    }
     this.dataService.lastSearchString = this.searchedValue;
     this.moviesService.search(this.searchedValue).subscribe(
       (resp) => {
