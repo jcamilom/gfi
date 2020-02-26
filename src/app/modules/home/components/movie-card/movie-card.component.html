@@ -6,8 +6,13 @@
     <span class="subtitle">{{ item.Year }} - {{ item.Type | titlecase }}</span>
   </div>
   <div fxFlex="auto" fxLayoutAlign="end end">
-    <button mat-icon-button aria-label="Add as favorite button" (click)="addAsFavorite($event)">
+    <button *ngIf="!isFavorite" mat-icon-button aria-label="Add as favorite button"
+      (click)="addAsFavorite($event)">
       <mat-icon>favorite_border</mat-icon>
+    </button>
+    <button *ngIf="isFavorite" mat-icon-button aria-label="Remove from favorites button"
+      (click)="removeFromFavorite($event)">
+      <mat-icon>delete_outline</mat-icon>
     </button>
   </div>
 </div>

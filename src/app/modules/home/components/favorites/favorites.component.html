@@ -5,7 +5,9 @@
   </div>
   <div fxLayout="row wrap" fxLayoutAlign="space-between" class="favorites-list-container">
     <ng-container *ngIf="favorites?.length > 0; else noFavorites">
-      <app-movie-card *ngFor="let item of favorites; index as i" [item]="item"></app-movie-card>
+      <app-movie-card *ngFor="let item of favorites; index as i" [item]="item"
+        [isFavorite]="true" (removeFavoriteClicked)="removeFromFavorite(i)">
+      </app-movie-card>
     </ng-container>
     <ng-template #noFavorites>
       No items in the favorites list

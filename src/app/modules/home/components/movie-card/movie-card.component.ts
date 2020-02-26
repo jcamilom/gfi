@@ -9,7 +9,9 @@ import { Movie } from '../../../../core/models/models';
 export class MovieCardComponent implements OnInit {
 
   @Input() item: Movie;
+  @Input() isFavorite: boolean;
   @Output() favoriteClicked = new EventEmitter<any>();
+  @Output() removeFavoriteClicked = new EventEmitter<any>();
 
   constructor() { }
 
@@ -19,6 +21,11 @@ export class MovieCardComponent implements OnInit {
   public addAsFavorite($event: Event): void {
     $event.stopPropagation();
     this.favoriteClicked.emit();
+  }
+
+  public removeFromFavorite($event: Event): void {
+    $event.stopPropagation();
+    this.removeFavoriteClicked.emit();
   }
 
 }

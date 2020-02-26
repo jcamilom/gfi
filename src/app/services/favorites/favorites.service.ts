@@ -33,4 +33,18 @@ export class FavoritesService {
     return userData.favorites;
   }
 
+  public removeFavorite(movie: Movie): boolean {
+    const userEmail = this.sessionService.getUserInfo().email;
+    const userData: { favorites: Movie[] } = JSON.parse(localStorage.getItem(userEmail));
+    const currentFavorites = userData.favorites;
+    const idx = currentFavorites.findIndex(favorite => favorite.imdbID === movie.imdbID);
+    if (idx !== -1) {
+      currentFavorites.splice(idx, 1);
+      const newUserData = { favorites: currentFavorites };
+      localStorage.setItem(userEmail, JSON.stringify(newUserData));
+      return true;
+    }
+    return false;
+  }
+
 }
