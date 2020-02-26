@@ -1,3 +1,5 @@
+@import '../../../../../sass/variables';
+
 .favorites-container {
   padding-top: 40px;
   .back-icon {
@@ -8,7 +10,7 @@
   }
   .favorites-title {
     font-size: 24px;
-    color: #4d5055;
+    color: $gray;;
   }
   .favorites-list-container {
     margin-top: 30px;

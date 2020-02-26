@@ -1,9 +1,11 @@
+@import '../../../../../sass/variables';
+
 .search-container {
   padding-top: 40px;
 
   .search-title {
     font-size: 24px;
-    color: #4d5055;
+    color: $gray;;
   }
 
   .results-container {
