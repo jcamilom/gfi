@@ -28,4 +28,8 @@ export class SearchComponent implements OnInit {
     );
   }
 
+  public addAsFavorite(index: number): void {
+    console.log(this.results[index]);
+  }
+
 }
