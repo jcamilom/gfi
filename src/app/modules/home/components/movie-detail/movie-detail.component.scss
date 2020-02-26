@@ -1,3 +1,5 @@
+@import '../../../../../sass/mixins';
+
 .movie-detail-container {
   padding-top: 40px;
   .back-icon {
@@ -9,5 +11,20 @@
   .movie-detail-title {
     font-size: 24px;
     color: #4d5055;
+  }
+  .movie-info-container {
+    margin-top: 30px;
+    .poster {
+      min-width: 250px;
+      max-width: 250px;
+    }
+    .white-bow {
+      @include white-box;
+      padding: 20px 20px;
+      span.key {
+        color: #4d5055;
+        font-weight: bold;
+      }
+    }
   }
 }

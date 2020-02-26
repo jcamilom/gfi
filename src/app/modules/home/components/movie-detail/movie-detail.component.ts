@@ -13,6 +13,10 @@ import { MovieDetail } from '../../../../core/models/models';
 export class MovieDetailComponent implements OnInit {
 
   public movie: MovieDetail;
+  public displayKeys: string[] = [
+    'Title', 'Year', 'Rated', 'Released', 'Runtime', 'Genre', 'Director', 'Writer',
+    'Actors', 'Plot', 'Language', 'Country', 'Awards'
+  ];
 
   constructor(private route: ActivatedRoute, private moviesService: MoviesService, private location: Location) { }
 
