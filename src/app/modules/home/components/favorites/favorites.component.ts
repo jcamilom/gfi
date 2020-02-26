@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 
+import { FavoritesService } from '../../../../services/favorites/favorites.service';
+import { Movie } from '../../../../core/models/models';
+
 @Component({
   selector: 'app-favorites',
   templateUrl: './favorites.component.html',
@@ -8,9 +11,12 @@ import { Location } from '@angular/common';
 })
 export class FavoritesComponent implements OnInit {
 
-  constructor(private location: Location) { }
+  public favorites: Movie[] = [];
+
+  constructor(private location: Location, private favoritesService: FavoritesService) { }
 
   ngOnInit(): void {
+    this.favorites = this.favoritesService.getFavorites();
   }
 
   public backClicked() {

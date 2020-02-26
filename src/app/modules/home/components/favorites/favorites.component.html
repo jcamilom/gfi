@@ -1,4 +1,6 @@
 <div class="favorites-container">
   <mat-icon class="back-icon" (click)="backClicked()">arrow_back</mat-icon>
-  <p>favorites works!</p>
+  <div *ngFor="let favorite of favorites">
+    {{ favorite | json }}
+  </div>
 </div>

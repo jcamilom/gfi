@@ -25,4 +25,10 @@ export class FavoritesService {
     }
   }
 
+  public getFavorites(): Movie[] {
+    const userEmail = this.sessionService.getUserInfo().email;
+    const userData: { favorites: Movie[] } = JSON.parse(localStorage.getItem(userEmail));
+    return userData.favorites;
+  }
+
 }
