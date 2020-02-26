@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home.component';
 import { SearchComponent } from './components/search/search.component';
+import { FavoritesComponent } from './components/favorites/favorites.component';
 
 import { AuthGuard } from '../../core/guards/auth.guard';
 
@@ -12,7 +13,8 @@ const routes: Routes = [
     component: HomeComponent,
     canActivate: [AuthGuard],
     children: [
-      { path: 'search', component: SearchComponent }
+      { path: 'search', component: SearchComponent },
+      { path: 'favorites', component: FavoritesComponent },
     ]
   },
 ];
