@@ -1,0 +1,14 @@
+<div class="favorites-container">
+  <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
+    <mat-icon class="back-icon" (click)="backClicked()">arrow_back</mat-icon>
+    <span class="favorites-title">My favorites</span>
+  </div>
+  <div fxLayout="row wrap" fxLayoutAlign="space-between" class="favorites-list-container">
+    <ng-container *ngIf="favorites?.length > 0; else noFavorites">
+      <app-search-result-card *ngFor="let item of favorites; index as i" [item]="item"></app-search-result-card>
+    </ng-container>
+    <ng-template #noFavorites>
+      No items in the favorites list
+    </ng-template>
+  </div>
+</div>

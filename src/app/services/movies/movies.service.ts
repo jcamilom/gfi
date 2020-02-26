@@ -4,10 +4,10 @@ import { HttpClient, HttpParams  } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { environment } from '../../../environments/environment';
-import { SearchResultItem } from '../../core/models/models';
+import { Movie } from '../../core/models/models';
 
 interface SearchResponse {
-  Search: SearchResultItem[];
+  Search: Movie[];
   totalResults: string;
   Response: 'True' | 'False';
 }

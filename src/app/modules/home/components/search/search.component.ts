@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { SearchResultItem } from '../../../../core/models/models';
+import { Movie } from '../../../../core/models/models';
 import { MoviesService } from '../../../../services/movies/movies.service';
+import { FavoritesService } from '../../../../services/favorites/favorites.service';
 
 @Component({
   selector: 'app-search',
@@ -9,11 +10,11 @@ import { MoviesService } from '../../../../services/movies/movies.service';
 })
 export class SearchComponent implements OnInit {
 
-  public results: SearchResultItem[] = [];
+  public results: Movie[] = [];
   public value = 'the lord of the rings';
   public searchedValue: string;
 
-  constructor(private moviesService: MoviesService) { }
+  constructor(private moviesService: MoviesService, private favoritesService: FavoritesService) { }
 
   ngOnInit(): void {
     this.search();
@@ -26,6 +27,10 @@ export class SearchComponent implements OnInit {
         this.results = resp.Search;
       }
     );
+  }
+
+  public addAsFavorite(index: number): void {
+    this.favoritesService.addFavorite(this.results[index]);
   }
 
 }

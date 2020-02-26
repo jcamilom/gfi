@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { SearchResultItem } from '../../../../core/models/models';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Movie } from '../../../../core/models/models';
 
 @Component({
   selector: 'app-search-result-card',
@@ -8,11 +8,16 @@ import { SearchResultItem } from '../../../../core/models/models';
 })
 export class SearchResultCardComponent implements OnInit {
 
-  @Input() item: SearchResultItem;
+  @Input() item: Movie;
+  @Output() favoriteClicked = new EventEmitter<any>();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public addAsFavorite(): void {
+    this.favoriteClicked.emit();
   }
 
 }
