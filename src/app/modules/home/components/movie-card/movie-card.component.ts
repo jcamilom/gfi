@@ -16,7 +16,8 @@ export class MovieCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public addAsFavorite(): void {
+  public addAsFavorite($event: Event): void {
+    $event.stopPropagation();
     this.favoriteClicked.emit();
   }
 
