@@ -1,13 +1,22 @@
-<mat-form-field class="search-field">
-  <mat-label>Title</mat-label>
-  <input matInput type="text" [(ngModel)]="value">
-  <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
-    <mat-icon>close</mat-icon>
-  </button>
-</mat-form-field>
+<div class="search-container">
+  <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
+    <span class="search-title">Search for titles</span>
+    <mat-form-field class="search-field" fxFlex="auto">
+      <mat-label>Title</mat-label>
+      <input matInput type="text" [(ngModel)]="value" (keyup.enter)="search()">
+      <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="search()">Search</button>
+  </div>
 
-<button mat-raised-button color="primary" (click)="search()">Search</button>
-
-<div fxLayout="row wrap" fxLayoutGap="20px" class="results-container">
-  <app-search-result-card *ngFor="let item of results" [item]="item"></app-search-result-card>
+  <div fxLayout="row wrap" fxLayoutAlign="space-between" class="results-container">
+    <ng-container *ngIf="results?.length > 0; else noResults">
+      <app-search-result-card *ngFor="let item of results" [item]="item"></app-search-result-card>
+    </ng-container>
+    <ng-template #noResults>
+      No results for "{{ searchedValue }}"
+    </ng-template>
+  </div>
 </div>
